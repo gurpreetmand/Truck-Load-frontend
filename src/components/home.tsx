@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 import Header from "./layout/Header";
+import Footer from "./layout/Footer";
 import UserTypeSelector from "./dashboard/UserTypeSelector";
 import TruckerDashboard from "./dashboard/TruckerDashboard";
 import LoaderDashboard from "./dashboard/LoaderDashboard";
 import AIChatbot from "./ai/AIChatbot";
 import LoadCalculator from "./ai/LoadCalculator";
 import ThemeSelector from "./settings/ThemeSelector";
+import AnimatedBackground from "./layout/AnimatedBackground";
 
 const Home: React.FC = () => {
   // State for user type selection
@@ -56,7 +58,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
+      <AnimatedBackground
+        theme={currentTheme}
+        animated={true}
+        density="medium"
+      />
       {/* Header */}
       <Header
         userName="John Doe"
@@ -177,6 +184,7 @@ const Home: React.FC = () => {
           <path d="M12 18h.01" />
         </svg>
       </motion.button>
+      <Footer />
     </div>
   );
 };
